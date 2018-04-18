@@ -19,3 +19,29 @@ def get_in_parenthesis(data):
     out.append(data[slice(*index)])
   
   return out
+
+def find_char(string, char):
+  indexes = []
+  for index, char_ in enumerate(list(string)):
+    if char_ == char:
+      indexes.append(index)
+  
+  return tuple(indexes)
+
+def find_string(main_str, substr):
+  slices = []
+  substr_l = list(substr)
+  main_str_l = list(main_str)
+  substr_len = len(substr)
+  
+  # print(substr_l)
+  
+  for index, char in enumerate(main_str_l):
+    if char == substr_l[0]:
+      # print(main_str_l[index:index+substr_len])
+      # print(main_str_l[index:index+substr_len] == substr_l)
+      if main_str_l[index:index+substr_len] == substr_l:
+        slices.append(slice(index,index+substr_len))
+  # print(slices)  
+  return slices
+
